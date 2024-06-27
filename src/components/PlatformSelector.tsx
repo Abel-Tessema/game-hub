@@ -1,21 +1,42 @@
-import {Button, Menu, MenuButton, MenuItem, MenuList, Spinner} from "@chakra-ui/react";
+import {Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Spinner} from "@chakra-ui/react";
 import {BsChevronDown} from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms.ts";
+import {Platform} from "../hooks/useGames.ts";
 
-function PlatformSelector() {
+interface Props {
+    onSelectPlatform: (platform: Platform | null) => void
+    selectedPlatform: Platform | null
+}
+
+function PlatformSelector({onSelectPlatform, selectedPlatform}: Props) {
     const {data, error, isLoading} = usePlatforms();
 
     if (error) return null;
 
-    if (isLoading) return <Spinner />
+    if (isLoading) return <Spinner/>
 
     return (
         <Menu>
-            <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-                Platforms
+            <MenuButton as={Button} rightIcon={<BsChevronDown/>}>
+                {selectedPlatform?.name || "All Platforms"}
             </MenuButton>
-            <MenuList>
-                {data.map(platform => <MenuItem key={platform.id}>{platform.name}</MenuItem>)}
+            <MenuList maxHeight={400} overflowY="auto">
+                <MenuItem key={"all"} onClick={() => {
+                    onSelectPlatform(null)
+                }}>
+                    All Platforms
+                </MenuItem>
+                <MenuDivider />
+                {data.map(platform =>
+                    <MenuItem
+                        key={platform.id}
+                        onClick={() => {
+                            onSelectPlatform(platform);
+                        }}
+                    >
+                        {platform.name}
+                    </MenuItem>
+                )}
             </MenuList>
         </Menu>
     );
