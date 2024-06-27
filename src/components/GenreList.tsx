@@ -3,7 +3,7 @@ import {Button, HStack, Image, List, ListItem, Spinner} from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url.ts";
 
 interface Props {
-    onSelectGenre: (genre: Genre) => void,
+    onSelectGenre: (genre: Genre | null) => void,
     selectedGenre: Genre | null
 }
 
@@ -30,7 +30,11 @@ function GenreList({onSelectGenre, selectedGenre}: Props) {
                             fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                             variant="link"
                             overflow="clip"
-                            onClick={() => onSelectGenre(genre)}
+                            onClick={() => {
+                                genre.id !== selectedGenre?.id
+                                    ? onSelectGenre(genre)
+                                    : onSelectGenre(null);
+                            }}
                         >
                             {genre.name}
                         </Button>
