@@ -29,7 +29,8 @@ function GenreList({onSelectGenre, selectedGenre}: Props) {
                             fontSize="lg"
                             fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                             variant="link"
-                            overflow="clip"
+                            whiteSpace="wrap"
+                            textAlign="left"
                             onClick={() => {
                                 genre.id !== selectedGenre?.id
                                     ? onSelectGenre(genre)
