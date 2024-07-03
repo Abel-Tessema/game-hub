@@ -18,7 +18,7 @@ function GenreList({onSelectGenre, selectedGenre}: Props) {
         <>
             <Heading fontSize="2xl" marginY={4}>Genres</Heading>
             <List>
-                {genres?.map(genre =>
+                {genres.map(genre =>
                     <ListItem key={genre.id} paddingY="5px">
                         <HStack>
                             <Image
