@@ -12,6 +12,7 @@ import {Platform} from "./hooks/usePlatforms.ts";
 
 export interface GameQuery {
     genre: Genre | null,
+    pageSize: number,
     platform: Platform | null,
     sortOrder: string,
     searchText: string
