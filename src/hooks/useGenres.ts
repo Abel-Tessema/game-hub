@@ -14,7 +14,7 @@ const useGenres = () => useQuery<FetchResponse<Genre>, Error>({
     queryKey: ['genres'],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1_000,
-    initialData: {results: genres}
+    initialData: genres
 });
 
 export default useGenres;
