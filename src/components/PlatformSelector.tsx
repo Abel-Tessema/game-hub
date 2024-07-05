@@ -1,16 +1,16 @@
 import {Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Spinner} from "@chakra-ui/react";
 import {BsChevronDown} from "react-icons/bs";
-import usePlatforms, {Platform} from "../hooks/usePlatforms.ts";
+import usePlatforms from "../hooks/usePlatforms.ts";
 import usePlatform from "../hooks/usePlatform.ts";
+import useGameQueryStore from "../gameQueryStore.ts";
 
-interface Props {
-    onSelectPlatform: (platform: Platform | null) => void,
-    selectedPlatformId?: number
-}
-
-function PlatformSelector({onSelectPlatform, selectedPlatformId}: Props) {
+function PlatformSelector() {
     const {data: {results: platforms}, error, isLoading} = usePlatforms();
-    const platform = usePlatform(selectedPlatformId);
+
+    const selectedPlatformId = useGameQueryStore(selector => selector.gameQuery.platformId);
+    const selectedPlatform = usePlatform(selectedPlatformId);
+
+    const setPlatformId = useGameQueryStore(selector => selector.setPlatformId);
 
     if (error) return null;
 
@@ -19,11 +19,11 @@ function PlatformSelector({onSelectPlatform, selectedPlatformId}: Props) {
     return (
         <Menu>
             <MenuButton as={Button} rightIcon={<BsChevronDown/>}>
-                {selectedPlatformId ? platform?.name : "All Platforms"}
+                {selectedPlatform?.name || "All Platforms"}
             </MenuButton>
             <MenuList maxHeight={400} overflowY="auto">
                 <MenuItem key={"all"} onClick={() => {
-                    onSelectPlatform(null)
+                    setPlatformId(undefined)
                 }}>
                     All Platforms
                 </MenuItem>
@@ -32,7 +32,7 @@ function PlatformSelector({onSelectPlatform, selectedPlatformId}: Props) {
                     <MenuItem
                         key={platform.id}
                         onClick={() => {
-                            onSelectPlatform(platform);
+                            setPlatformId(platform.id);
                         }}
                     >
                         {platform.name}
