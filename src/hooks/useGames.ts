@@ -5,12 +5,14 @@ import ms from "ms";
 import useGameQueryStore from "../gameQueryStore.ts";
 
 export interface Game {
+    description_raw: string,
     id: number,
     name: string,
     background_image: string,
     parent_platforms: { platform: Platform }[],
     metacritic: number,
     rating_top: number
+    slug: string,
 }
 
 const apiClient = new ApiClient<Game>("/games");

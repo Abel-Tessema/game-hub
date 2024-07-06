@@ -26,7 +26,7 @@ function GameGrid() {
     if (error) return <Text>{error.message}</Text>;
 
     return (
-        <Box padding={5}>
+        <Box>
             <InfiniteScroll
                 next={fetchNextPage}
                 hasMore={hasNextPage}
