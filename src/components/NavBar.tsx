@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput.tsx";
 
 function NavBar() {
     return (
-        <HStack paddingX={15} paddingY={3}>
+        <HStack paddingX={15} paddingY={3} paddingRight={7}>
             <Image src={logo} alt="Game Hub" boxSize="60px"></Image>
             <SearchInput/>
             <ColorModeSwitch />

@@ -36,7 +36,7 @@ function GameGrid() {
                 <SimpleGrid
                     columns={{sm: 1, md: 2, lg: 3, xl: 4}}
                     spacing={5}
-
+                    margin={2}
                 >
                     {isLoading && skeletons.map(skeleton =>
                         <GameCardContainer key={skeleton}>
