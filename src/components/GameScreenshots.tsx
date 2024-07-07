@@ -1,5 +1,5 @@
 import useScreenshots from "../hooks/useScreenshots.ts";
-import {GridItem, Heading, Image, SimpleGrid} from "@chakra-ui/react";
+import {GridItem, Image, SimpleGrid} from "@chakra-ui/react";
 
 interface Props {
     slug: string
@@ -16,7 +16,6 @@ function GameScreenshots({slug}: Props) {
 
     return screenshots ? (
         <>
-            <Heading textAlign="center" fontSize={25} marginY={5}>Screenshots</Heading>
             <SimpleGrid columns={{base: 1, md: 2}} spacing={5} margin={2}>
                 {screenshots.map(screenshot =>
                     <GridItem key={screenshot.id}>

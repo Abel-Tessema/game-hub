@@ -1,5 +1,5 @@
 import useTrailers from "../hooks/useTrailers.ts";
-import {Center, Heading, Spinner} from "@chakra-ui/react";
+import {Center, Divider, Heading, Spinner} from "@chakra-ui/react";
 
 interface Props {
     slug: string
@@ -24,6 +24,7 @@ function GameTrailer({slug}: Props) {
                     poster={first.preview}
                 />
             </Center>
+            <Center><Divider width={300} marginY={5}/></Center>
         </>
     ) : null;
 }

@@ -21,7 +21,7 @@ function GameAttributes({game}: Props) {
 
     return (
         <>
-            <Grid marginTop={5} templateAreas={{base: `"platforms metascore" "genres publishers"`}}>
+            <Grid templateAreas={{base: `"platforms metascore" "genres publishers"`}}>
 
                 <GridItem area="platforms">
                     <GameAttribute heading="Platforms" body={platforms}/>
