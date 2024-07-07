@@ -2,7 +2,7 @@ import {useInfiniteQuery} from "@tanstack/react-query";
 import ApiClient, {FetchResponse} from "../services/api-client.ts";
 import ms from "ms";
 import useGameQueryStore from "../gameQueryStore.ts";
-import {Game} from "../entities/Game.ts";
+import Game from "../entities/Game.ts";
 
 export const apiClient = new ApiClient<Game>("/games");
 

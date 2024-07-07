@@ -1,6 +1,6 @@
 import {create} from "zustand";
 import {mountStoreDevtool} from "simple-zustand-devtools";
-import {GameQuery} from "./entities/GameQuery.ts";
+import GameQuery from "./entities/GameQuery.ts";
 
 export interface GameQueryStore {
     gameQuery: GameQuery;

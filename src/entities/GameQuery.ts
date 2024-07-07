@@ -1,4 +1,4 @@
-export interface GameQuery {
+export default interface GameQuery {
     genreId?: number,
     pageSize?: number,
     platformId?: number,
