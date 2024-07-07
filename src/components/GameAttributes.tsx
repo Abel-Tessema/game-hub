@@ -20,40 +20,27 @@ function GameAttributes({game}: Props) {
     );
 
     return (
-        <Grid
-            marginTop={5}
-            templateAreas={{base: `"platforms metascore" "genres publishers"`}}
-        >
+        <>
+            <Grid marginTop={5} templateAreas={{base: `"platforms metascore" "genres publishers"`}}>
 
-            <GridItem area="platforms">
-                <GameAttribute
-                    heading="Platforms"
-                    body={platforms}
-                />
-            </GridItem>
+                <GridItem area="platforms">
+                    <GameAttribute heading="Platforms" body={platforms}/>
+                </GridItem>
 
-            <GridItem area="metascore">
-                <GameAttribute
-                    heading="Metascore"
-                    body={metascore}
-                />
-            </GridItem>
+                <GridItem area="metascore">
+                    <GameAttribute heading="Metascore" body={metascore}/>
+                </GridItem>
 
-            <GridItem area="genres">
-                <GameAttribute
-                    heading="Genres"
-                    body={genres}
-                />
-            </GridItem>
+                <GridItem area="genres">
+                    <GameAttribute heading="Genres" body={genres}/>
+                </GridItem>
 
-            <GridItem area="publishers">
-                <GameAttribute
-                    heading="Publishers"
-                    body={publishers}
-                />
-            </GridItem>
+                <GridItem area="publishers">
+                    <GameAttribute heading="Publishers" body={publishers}/>
+                </GridItem>
 
-        </Grid>
+            </Grid>
+        </>
     );
 }
 
