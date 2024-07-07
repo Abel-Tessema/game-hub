@@ -1,4 +1,4 @@
-import {Box, Input, InputGroup, InputLeftElement} from "@chakra-ui/react";
+import {Box, CloseButton, Input, InputGroup, InputLeftElement, InputRightElement} from "@chakra-ui/react";
 import {BsSearch} from "react-icons/bs";
 import {useRef} from "react";
 import useGameQueryStore from "../gameQueryStore.ts";
@@ -23,6 +23,16 @@ function SearchInput() {
                 <InputGroup>
                     <InputLeftElement children={<BsSearch/>}/>
                     <Input ref={ref} borderRadius={20} placeholder="Search games…" variant="filled"/>
+                    <InputRightElement children={
+                        <CloseButton
+                            borderRadius={15}
+                            overflow="hidden"
+                            onClick={() => {
+                                if (ref.current) ref.current.value = "";
+                                setSearchText(undefined);
+                            }}
+                        />
+                    }/>
                 </InputGroup>
             </form>
         </Box>
