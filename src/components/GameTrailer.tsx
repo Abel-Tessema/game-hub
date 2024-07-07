@@ -20,7 +20,6 @@ function GameTrailer({slug}: Props) {
             <Center>
                 <video
                     src={first.data.max}
-                    width={600}
                     controls
                     poster={first.preview}
                 />

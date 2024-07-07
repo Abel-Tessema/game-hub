@@ -16,7 +16,7 @@ function ExpandableText({children}: Props) {
     const summary = children?.substring(0, limit) + "… ";
 
     return (
-        <Text>
+        <Text textAlign="justify">
             {isExpanded ? children + " " : summary}
             <Button
                 onClick={() => setExpanded(!isExpanded)}
