@@ -16,7 +16,7 @@ function GameTrailer({slug}: Props) {
 
     return first ? (
         <>
-            <Heading textAlign="center" fontSize={20} marginY={5}>{first.name}</Heading>
+            <Heading textAlign="center" fontSize={25} marginY={5}>{first.name}</Heading>
             <Center>
                 <video
                     src={first.data.max}
